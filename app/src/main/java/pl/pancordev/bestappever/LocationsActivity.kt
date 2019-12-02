@@ -1,17 +1,23 @@
 package pl.pancordev.bestappever
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_locations.*
 
 class LocationsActivity : AppCompatActivity() {
 
-    private val TAG = MainActivity::class.java.name
+    private val TAG = LocationsActivity::class.java.name
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_locations)
         Log.e(TAG, "onCreate")
+
+        start_third_activity.setOnClickListener {
+            val thirdActivityIntent = Intent(this, ThirdActivity::class.java)
+            startActivity(thirdActivityIntent) }
     }
 
     override fun onStart() {
