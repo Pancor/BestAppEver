@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.e(TAG, "onCreate")
+
         Glide
             .with(this)
             .load(R.drawable.ic_warning_black_24dp)
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             error_description.text = find_location.text
 //            Log.e(TAG, find_location.text.toString())
             Toast.makeText(applicationContext, find_location.text, Toast.LENGTH_SHORT).show()
-            val locationsActivityIntent = Intent(this, LocationsActivity::class.java)
+            val locationsActivityIntent = LocationsActivity.sendAdditionalText(this, find_location.text.toString())
             startActivity(locationsActivityIntent)
         }
     }
