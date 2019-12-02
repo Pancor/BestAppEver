@@ -1,6 +1,5 @@
 package pl.pancordev.bestappever
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -24,35 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         submit.setOnClickListener {
             error_description.text = find_location.text
-//            Log.e(TAG, find_location.text.toString())
             Toast.makeText(applicationContext, find_location.text, Toast.LENGTH_SHORT).show()
             val locationsActivityIntent = LocationsActivity.sendAdditionalText(this, find_location.text.toString())
             startActivity(locationsActivityIntent)
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.e(TAG, "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.e(TAG, "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.e(TAG, "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.e(TAG, "onStop")
-}
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e(TAG, "onDestroy")
     }
 }
