@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Best App Ever</string>
+    <string name="find_location">Znajdź lokalizację</string>
+    <string name="submit">Wyszukaj</string>
+    <string name="name">Nazwa</string>
+    <string name="error_invalid_location">Błędna nazwa lokalizacji</string>
+    <string name="new_york">Warszawa</string>
+</resources>

@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="distance_large">24dp</dimen>
     <dimen name="distance_regular">16dp</dimen>
     <dimen name="distance_small">8dp</dimen>
 </resources>

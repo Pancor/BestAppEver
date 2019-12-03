@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Best App Ever</string>
+    <string name="app_name" translatable="false">Best App Ever</string>
+    <string name="find_location">Find location</string>
+    <string name="submit">Submit</string>
+    <string name="name">Name</string>
+    <string name="error_invalid_location">Invalid location name</string>
+    <string name="new_york">New York</string>
 </resources>
