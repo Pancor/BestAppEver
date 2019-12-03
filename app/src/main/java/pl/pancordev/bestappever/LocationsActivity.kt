@@ -24,7 +24,6 @@ class LocationsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_locations)
-        Log.e(TAG, "onCreate")
 
         start_third_activity.text = intent.getStringExtra(DATA_KEY)
 
