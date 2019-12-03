@@ -5,4 +5,5 @@
     <string name="name">Nazwa</string>
     <string name="error_invalid_location">Błędna nazwa lokalizacji</string>
     <string name="new_york">Lokalizacja</string>
+    <string name="error_icon">Ikona błędu</string>
 </resources>

@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        style="@style/Toolbar"
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/headerView"
         android:layout_width="0dp"
@@ -16,58 +25,17 @@
         android:layout_marginEnd="@dimen/distance_regular"
         android:text="@string/find_location"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="?colorHeader"
         app:layout_constraintBottom_toTopOf="@+id/find_location_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/distance_small"
-        android:layout_marginEnd="@dimen/distance_regular"
-        android:text="@string/submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/find_location_layout" />
-
-    <TextView
-        android:id="@+id/error_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/distance_small"
-        android:layout_marginEnd="@dimen/distance_small"
-        android:text="@string/error_invalid_location"
-        app:layout_constraintBaseline_toBaselineOf="@+id/submit"
-        app:layout_constraintEnd_toStartOf="@+id/submit"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/error_image"
-        app:layout_constraintTop_toBottomOf="@+id/find_location_layout" />
-
-    <ImageView
-        android:id="@+id/error_image"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/distance_regular"
-        android:layout_marginEnd="@dimen/distance_small"
-        android:adjustViewBounds="true"
-        android:tint="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="@+id/submit"
-        app:layout_constraintEnd_toStartOf="@+id/error_description"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/submit"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/find_location_layout"
+        style="@style/Margin.All"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/distance_regular"
-        android:layout_marginTop="@dimen/distance_small"
-        android:layout_marginEnd="@dimen/distance_regular"
-        android:layout_marginBottom="@dimen/distance_small"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,9 +46,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/new_york"
             android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:hint="@string/new_york" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit"
+        style="@style/Margin.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/find_location_layout" />
+
+    <TextView
+        android:id="@+id/error_description"
+        style="@style/Margin.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/error_invalid_location"
+        app:layout_constraintBaseline_toBaselineOf="@+id/submit"
+        app:layout_constraintEnd_toStartOf="@+id/submit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/error_image"
+        app:layout_constraintTop_toBottomOf="@+id/find_location_layout" />
+
+    <ImageView
+        android:id="@+id/error_image"
+        style="@style/Margin.Horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/error_icon"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="@+id/submit"
+        app:layout_constraintEnd_toStartOf="@+id/error_description"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/submit"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
