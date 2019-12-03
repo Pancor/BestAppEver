@@ -4,5 +4,5 @@
     <string name="submit">Wyszukaj</string>
     <string name="name">Nazwa</string>
     <string name="error_invalid_location">Błędna nazwa lokalizacji</string>
-    <string name="new_york">Warszawa</string>
+    <string name="new_york">Lokalizacja</string>
 </resources>
