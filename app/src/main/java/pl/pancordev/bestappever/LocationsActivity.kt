@@ -4,8 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_locations.*
 import kotlinx.android.synthetic.main.activity_locations.toolbar
+import pl.pancordev.bestappever.locations.presentation.LocationDescriptionAdapter
+import pl.pancordev.bestappever.locations.repository.LocationRepository
 
 class LocationsActivity : AppCompatActivity() {
 
@@ -26,11 +30,13 @@ class LocationsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_locations)
         setSupportActionBar(toolbar)
 
-        start_third_activity.text = intent.getStringExtra(DATA_KEY)
+        val linearLayoutManager = LinearLayoutManager(this)
+        recycler_view.layoutManager = linearLayoutManager
+        recycler_view.itemAnimator = DefaultItemAnimator()
 
-        start_third_activity.setOnClickListener {
-            val thirdActivityIntent = Intent(this, ThirdActivity::class.java)
-            startActivity(thirdActivityIntent)
-        }
+        val locationsAdapter = LocationDescriptionAdapter()
+        val locationRepository = LocationRepository()
+        locationsAdapter.setLocations(locationRepository.getLocationDescriptions())
+        recycler_view.adapter = locationsAdapter
     }
 }

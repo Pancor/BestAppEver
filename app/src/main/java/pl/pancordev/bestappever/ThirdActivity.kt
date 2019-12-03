@@ -17,17 +17,20 @@ class ThirdActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true) ?: throw IllegalStateException("No toolbar to set")
 
-        button.setOnClickListener {
-            val mainActivityIntent = Intent(this, MainActivity::class.java)
-            mainActivityIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(mainActivityIntent)
-        }
+        button.setOnClickListener { backToMainActivity() }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.toolbar) {
+            backToMainActivity()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun backToMainActivity() {
         val mainActivityIntent = Intent(this, MainActivity::class.java)
         mainActivityIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(mainActivityIntent)
-        return super.onOptionsItemSelected(item)
     }
 }
