@@ -3,9 +3,9 @@ package pl.pancordev.bestappever
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_locations.*
+import kotlinx.android.synthetic.main.activity_locations.toolbar
 
 class LocationsActivity : AppCompatActivity() {
 
@@ -24,6 +24,7 @@ class LocationsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_locations)
+        setSupportActionBar(toolbar)
 
         start_third_activity.text = intent.getStringExtra(DATA_KEY)
 
