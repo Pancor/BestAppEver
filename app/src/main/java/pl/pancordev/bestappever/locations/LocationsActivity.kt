@@ -1,4 +1,4 @@
-package pl.pancordev.bestappever
+package pl.pancordev.bestappever.locations
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_locations.*
 import kotlinx.android.synthetic.main.activity_locations.toolbar
+import pl.pancordev.bestappever.R
 import pl.pancordev.bestappever.locations.presentation.LocationDescriptionAdapter
 import pl.pancordev.bestappever.locations.repository.LocationRepository
 
@@ -36,7 +37,8 @@ class LocationsActivity : AppCompatActivity() {
 
         val locationsAdapter = LocationDescriptionAdapter()
         val locationRepository = LocationRepository()
-        locationsAdapter.setLocations(locationRepository.getLocationDescriptions())
         recycler_view.adapter = locationsAdapter
+
+        locationsAdapter.setLocations(locationRepository.getLocationDescriptions())
     }
 }

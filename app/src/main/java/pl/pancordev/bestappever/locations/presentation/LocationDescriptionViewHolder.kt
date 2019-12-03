@@ -1,9 +1,9 @@
 package pl.pancordev.bestappever.locations.presentation
 
-import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -15,6 +15,7 @@ class LocationDescriptionViewHolder(itemView: View) : RecyclerView.ViewHolder(it
     private val image = itemView.findViewById<ImageView>(R.id.location_image)
     private val name = itemView.findViewById<TextView>(R.id.name_view)
     private val address = itemView.findViewById<TextView>(R.id.address_view)
+    private val cardView = itemView.findViewById<CardView>(R.id.card_view)
 
     fun bindLocationDescription(location: LocationDescription) {
         name.text = location.name
@@ -26,5 +27,6 @@ class LocationDescriptionViewHolder(itemView: View) : RecyclerView.ViewHolder(it
             .placeholder(android.R.color.transparent)
             .centerCrop()
             .into(image)
+        cardView.setOnClickListener {  }
     }
 }
