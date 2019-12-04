@@ -10,14 +10,14 @@ import kotlinx.android.synthetic.main.activity_locations.*
 import kotlinx.android.synthetic.main.activity_locations.toolbar
 import pl.pancordev.bestappever.R
 import pl.pancordev.bestappever.locations.presentation.LocationDescriptionAdapter
-import pl.pancordev.bestappever.locations.repository.LocationRepository
+import pl.pancordev.bestappever.locations.presentation.LocationPresenter
 
 class LocationsActivity : AppCompatActivity() {
 
     private val TAG = LocationsActivity::class.java.name
 
     companion object {
-        private val DATA_KEY = "DATA_KEY"
+        private const val DATA_KEY = "DATA_KEY"
 
         fun sendAdditionalText(context: Context, data: String): Intent {
             val intent = Intent(context, LocationsActivity::class.java)
@@ -26,19 +26,20 @@ class LocationsActivity : AppCompatActivity() {
         }
     }
 
+    private val locationPresenter = LocationPresenter()
+    private val locationAdapter = LocationDescriptionAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_locations)
         setSupportActionBar(toolbar)
 
         val linearLayoutManager = LinearLayoutManager(this)
+
         recycler_view.layoutManager = linearLayoutManager
         recycler_view.itemAnimator = DefaultItemAnimator()
+        recycler_view.adapter = locationAdapter
 
-        val locationsAdapter = LocationDescriptionAdapter()
-        val locationRepository = LocationRepository()
-        recycler_view.adapter = locationsAdapter
-
-        locationsAdapter.setLocations(locationRepository.getLocationDescriptions())
+        locationAdapter.setLocations(locationPresenter.getAllData())
     }
 }
