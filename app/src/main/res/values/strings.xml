@@ -6,4 +6,5 @@
     <string name="error_invalid_location">Invalid location name</string>
     <string name="new_york">Localization</string>
     <string name="error_icon">Error icon</string>
+    <string name="go_to_my_locations">Go to my locations</string>
 </resources>

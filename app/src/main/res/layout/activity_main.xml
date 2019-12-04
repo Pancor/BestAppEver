@@ -88,4 +88,14 @@
         app:layout_constraintTop_toTopOf="@+id/submit"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <Button
+        android:id="@+id/places_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/distance_regular"
+        android:text="@string/go_to_my_locations"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

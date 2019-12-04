@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".places.PlacesActivity"></activity>
         <activity android:name=".ThirdActivity" />
         <activity android:name=".locations.LocationsActivity" />
         <activity android:name=".MainActivity">
