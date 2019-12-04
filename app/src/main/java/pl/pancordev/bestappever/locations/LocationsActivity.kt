@@ -38,7 +38,6 @@ class LocationsActivity : AppCompatActivity(), OnLocationsReady {
 
         val locationViewModel = ViewModelProviders.of(this)[LocationViewModel::class.java]
 
-
         val linearLayoutManager = LinearLayoutManager(this)
 
         recycler_view.layoutManager = linearLayoutManager

@@ -10,7 +10,7 @@ fun main() {
         "NOT EQUALS".log()
     }
 
-    val screamer = NoisyPersion()
+    val screamer = NoisyPerson()
     doScream(screamer)
 }
 
@@ -44,7 +44,7 @@ interface Screamer {
     fun scream()
 }
 
-class NoisyPersion : Screamer{
+class NoisyPerson : Screamer{
     override fun scream() {
         "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA".log()
     }
