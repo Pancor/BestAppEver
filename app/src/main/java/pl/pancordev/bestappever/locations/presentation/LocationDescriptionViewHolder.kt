@@ -12,6 +12,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import pl.pancordev.bestappever.locations.domain.LocationDescription
 import pl.pancordev.bestappever.R
 import pl.pancordev.bestappever.databinding.ItemLocationDescriptionBinding
+import pl.pancordev.bestappever.log
 import java.lang.IllegalArgumentException
 
 class LocationDescriptionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,7 +23,7 @@ class LocationDescriptionViewHolder(itemView: View) : RecyclerView.ViewHolder(it
         val binding = DataBindingUtil.findBinding(itemView) ?: DataBindingUtil.bind<ItemLocationDescriptionBinding>(itemView)
         binding?.locationDescription = location
         binding?.executePendingBindings()
-
+        "bindLocationDescritpion".log()
         cardView.setOnClickListener {
             Toast.makeText(itemView.context, location.name, Toast.LENGTH_SHORT).show()
         }
