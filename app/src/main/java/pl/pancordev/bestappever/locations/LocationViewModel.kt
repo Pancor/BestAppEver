@@ -1,25 +1,44 @@
-package pl.pancordev.bestappever.locations.presentation
+package pl.pancordev.bestappever.locations
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.*
 import pl.pancordev.bestappever.locations.domain.LocationDescription
 import pl.pancordev.bestappever.locations.repository.LocationRepository
 import pl.pancordev.bestappever.log
+import javax.inject.Inject
 
 interface OnLocationsReady {
 
     fun setLocations(locations: List<LocationDescription>)
 }
 
-class LocationViewModel : ViewModel() {
+class LocationViewModel @Inject constructor(): ViewModel() {
 
     private val locationRepository = LocationRepository()
-    private val scope = CoroutineScope(Dispatchers.Main)
+
+    private val job = SupervisorJob()
+    private val scope = CoroutineScope(Dispatchers.Main + job)
+
+
+    init {
+        scope.launch {
+            "started working".log()
+            val locations = locationRepository.getLocationDescriptions()
+
+            // TODO: zaktualizuj LiveData (MutableLiveData)
+            //locationsReceiver.setLocations(locations)
+            "finished".log()
+        }
+
+    }
+
 
     fun getAllData(locationsReceiver: OnLocationsReady) {
         scope.launch {
+            "started working".log()
             val locations = locationRepository.getLocationDescriptions()
             locationsReceiver.setLocations(locations)
+            "finished".log()
         }
     }
 
@@ -44,5 +63,10 @@ class LocationViewModel : ViewModel() {
             val modifyResult = resultA.await() + resultB.await()
             "RESULT = $modifyResult".log()
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        job.cancelChildren()
     }
 }
