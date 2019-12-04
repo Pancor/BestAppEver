@@ -1,10 +1,25 @@
 package pl.pancordev.bestappever.locations.repository
 
 import pl.pancordev.bestappever.locations.domain.LocationDescription
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class LocationRepository {
 
+    private val api: TypicodeApi
+
+    init {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(TYPICODE_ENDPOINT)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        api = retrofit.create(TypicodeApi::class.java)
+    }
+
+    suspend fun getCitiesFromServer() = api.getAllCities()
+
     fun getLocationDescriptions(): List<LocationDescription> {
+        //val fromServer = api.getAllCities()
         return listOf(
             LocationDescription(5, "Najwyższa wiklinowa żyrafa w Europie", "https://static.wixstatic.com/media/92a131_26a0e399fed048e4bcae47b20bfd2fb2.jpg/v1/fill/w_630,h_417,al_c,q_80,usm_0.66_1.00_0.01/92a131_26a0e399fed048e4bcae47b20bfd2fb2.webp", "Rumia, Polska"),
             LocationDescription(6, "Gdyńska ryba", "https://zasoby.ekologia.pl/artykulyNew/23455/xxl/carp-2393788-960-720_800x600.jpg", "Gdynia, Polska"),

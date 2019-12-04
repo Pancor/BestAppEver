@@ -23,7 +23,6 @@ class LocationDescriptionViewHolder(itemView: View) : RecyclerView.ViewHolder(it
         val binding = DataBindingUtil.findBinding(itemView) ?: DataBindingUtil.bind<ItemLocationDescriptionBinding>(itemView)
         binding?.locationDescription = location
         binding?.executePendingBindings()
-        "bindLocationDescritpion".log()
         cardView.setOnClickListener {
             Toast.makeText(itemView.context, location.name, Toast.LENGTH_SHORT).show()
         }
