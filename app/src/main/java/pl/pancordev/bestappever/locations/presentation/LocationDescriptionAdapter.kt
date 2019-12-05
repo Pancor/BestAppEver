@@ -8,7 +8,7 @@ import pl.pancordev.bestappever.locations.domain.LocationDescription
 
 class LocationDescriptionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var locations: List<LocationDescription> = emptyList()
+    private var locations: Array<LocationDescription> = emptyArray()
 
     private val LOCATION_TYPE = 1
 
@@ -30,7 +30,7 @@ class LocationDescriptionAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
         return LOCATION_TYPE
     }
 
-    fun setLocations(locations: List<LocationDescription>) {
+    fun setLocations(locations: Array<LocationDescription>) {
         this.locations = locations
         notifyDataSetChanged()
     }
